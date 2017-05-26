@@ -1,12 +1,6 @@
-<html>
-	<head>
-		{% if title %}
-		<title>{{ title }} - microblog</title>
-		{% else %}
-		<title>Welcome to microblog</title>
-		{% endif %}
-	</head>
-	<body>
+{% extends "base.html" %}
+
+{% block content %}
 		<h1>Hello, {{ user.nickname }}</h1>
 		{% for post in posts %}
 		<div>
@@ -15,5 +9,4 @@
 			</p>
 		</div>
 		{% endfor %}
-	</body>
-</html>
+{% endblock %}
