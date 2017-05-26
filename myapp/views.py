@@ -5,4 +5,4 @@ from flask import render_template
 @app.route('/index')
 def index():
 	mockUser = {'nickname':'Manuel'}
-	return render_template('index.html',title='Home',user=mockUser)
+	return render_template('index.html',user=mockUser)
