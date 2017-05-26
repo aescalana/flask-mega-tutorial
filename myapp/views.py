@@ -25,4 +25,4 @@ def login():
 		flash('Login requested for OpenID=%s, remember_me=%s' % (lForm.openid.data,str(lForm.remember_me.data)))
 		return redirect('/index')
 	else:
-		return render_template('login.html',title='Sign in',form=lForm)
+		return render_template('login.html',title='Sign in',form=lForm,providers=app.config['OPENID_PROVIDERS'])
