@@ -1,2 +1,4 @@
 # Ignore compiled python files
 *.pyc
+# Ignore tmp folder used by OpenID
+tmp
