@@ -2,7 +2,7 @@ from myapp import app, db, lm, oid
 from myapp.forms import LoginForm
 from myapp.models import User
 from flask import render_template, flash, redirect, session, url_for, request, g
-from flask_login import login_user, current_user, login_required
+from flask_login import login_user, logout_user, current_user, login_required
 
 @app.before_request
 def before_request():
@@ -38,6 +38,11 @@ def login():
 		return oid.try_login(lForm.openid.data, ask_for=['nickname', 'email'])
 	else:
 		return render_template('login.html',title='Sign in',form=lForm,providers=app.config['OPENID_PROVIDERS'])
+
+@app.route('/logout')
+def logout():
+	logout_user()
+	return redirect(url_for('index'))
 
 @lm.user_loader
 def load_user(id):
